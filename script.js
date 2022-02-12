@@ -1,6 +1,5 @@
 var generateBtn = document.querySelector("#generate");
 
-//Make the arrays to pull characters from
 var lowercase = [
   "a",
   "b",
@@ -61,7 +60,6 @@ var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var special = ["!", "@", "#", "?", "%", "*"];
 var passChar = [];
 
-// Write password to the #password input here
 
 function writePassword() {
   var password = generatePassword();
@@ -69,48 +67,44 @@ function writePassword() {
   passwordText.value = password;
 
   function generatePassword() {
-    var numChar = prompt(
-      "How long should your password be? (Please choose a number between 8-128"
-    );
-    if (numChar >= 8 && numChar <= 128) {
-      console.log(numChar);
-      //what if second entry is also invalid?
-    } else if (numChar < 8 || numChar > 128 || numChar == null) {
-      prompt("Invalid entry. Please pick a number between 8-128.");
-      console.log(numChar);
-    } 
-    
-    //need to do something here to redirect back through first part if second entry also not within range
-    //try a while loop here, or have the function call itself again
+    var numChar = prompt("How long should your password be? (Please choose a number between 8-128");
+    if (numChar < 8 || numChar > 128 || numChar == null) {
+      alert("Invalid entry. Please pick a number between 8-128.");
+      generatePassword();
+      } else console.log(numChar);
 
     var incLC = confirm("Would you like to include lowercase characters?");
     if (incLC === true) {
       passChar = passChar.concat(lowercase);
     }
-    var incUC = confirm("Would you like to include lowercase characters?");
+    var incUC = confirm("Would you like to include uppercase characters?");
     if (incUC === true) {
       passChar = passChar.concat(uppercase);
     }
-    var incNum = confirm("Would you like to include lowercase characters?");
+    var incNum = confirm("Would you like to include numbers?");
     if (incNum === true) {
       passChar = passChar.concat(num);
     }
-    var incSC = confirm("Would you like to include lowercase characters?");
+    var incSC = confirm("Would you like to include special characters?");
     if (incSC === true) {
       passChar = passChar.concat(special);
     }
-//if none selected and passChar = null, need something that alerts user to select something and the restart
 
-    for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  
+    console.log(passChar);
+
+    if (passChar.length = 0) {
+      alert("You can't generate a password if you don't select any characters. Please try again.")
+      generatePassword()
+    }
+  }
+
+  //   for (let index = 0; index < array.length; index++) {
+  // const element = array[index]; 
+  // }
 }
     //repeat with for loop for numChar amount of iterations
     //passChar.length
     //return password
-  }
-}
-
 
 // function getRandomInt(max) {
 //   return Math.floor(Math.random() * max);
