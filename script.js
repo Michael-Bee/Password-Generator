@@ -63,7 +63,6 @@ var passChar = [];
 
 // Write password to the #password input here
 
-//This asks for number of characters
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -73,20 +72,19 @@ function writePassword() {
     var numChar = prompt(
       "How long should your password be? (Please choose a number between 8-128"
     );
-    //this makes sure the number of characters are within the required range
     if (numChar >= 8 && numChar <= 128) {
       console.log(numChar);
       //what if second entry is also invalid?
     } else if (numChar < 8 || numChar > 128 || numChar == null) {
       prompt("Invalid entry. Please pick a number between 8-128.");
       console.log(numChar);
-    } //need to do something here to redirect back through first part if second entry also not within range
+    } 
+    
+    //need to do something here to redirect back through first part if second entry also not within range
     //try a while loop here, or have the function call itself again
 
-    //This confirms whether to include lowercase, returns a boolean true/false
     var incLC = confirm("Would you like to include lowercase characters?");
     if (incLC === true) {
-      // this adds the lowercase array
       passChar = passChar.concat(lowercase);
     }
     var incUC = confirm("Would you like to include lowercase characters?");
@@ -114,11 +112,11 @@ function writePassword() {
 }
 
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+// function getRandomInt(max) {
+//   return Math.floor(Math.random() * max);
+// }
 
-console.log(getRandomInt(numChar));
+// console.log(getRandomInt(numChar));
 
 
 // event listener for generate button - when clicked, this starts the writePassword function
