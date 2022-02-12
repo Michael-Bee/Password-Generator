@@ -93,18 +93,18 @@ function writePassword() {
       console.log("Array is empty.");
       alert("You can't generate a password if you don't select any characters. Please try again.");
     }
+
     console.log(passChar);
-//All of this part works ^^^^^^^^^^
+//All of this part seems to work ^^^^^^^^^^
 
-
-////  const element = array[index];
-      for (var i = 0; i < numChar.length; i++) {
-        password += passChar.charAt(Math.floor(Math.random() * passChar.length));
-      }
-        console.log(password);
-        return password;
-
-
+    totalChar = passChar.length;
+      
+    for (var i = 0; i < numChar.length; i++) {
+      password += passChar.charAt(Math.floor(Math.random() * totalChar));
+    }
+      
+    console.log(password);
+    return password;
   }
 }
 
