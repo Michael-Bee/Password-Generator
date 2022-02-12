@@ -63,7 +63,7 @@ var passChar = [];
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+      passwordText.value = password;
 
 
   function generatePassword() {
@@ -89,29 +89,23 @@ function writePassword() {
     if (incSC === true) {
       passChar = passChar.concat(special);
     }
-    console.log(passChar);
     if (passChar.length === 0) {
       console.log("Array is empty.");
       alert("You can't generate a password if you don't select any characters. Please try again.");
     }
-//All of above works ^^^^^^^^^^
-    
-    writePassword()
+    console.log(passChar);
+//All of this part works ^^^^^^^^^^
 
+
+////  const element = array[index];
       for (var i = 0; i < numChar.length; i++) {
-        password += passChar.charAt
-        (Math.floor(Math.random() * passChar.length));
+        password += passChar.charAt(Math.floor(Math.random() * passChar.length));
       }
         console.log(password);
         return password;
-        
+
+
   }
-
-
-    ////  const element = array[index];
 }
-
-
-
 
 generateBtn.addEventListener("click", writePassword);
