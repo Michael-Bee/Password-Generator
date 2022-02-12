@@ -60,11 +60,11 @@ var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var special = ["!", "@", "#", "?", "%", "*"];
 var passChar = [];
 
-
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+
 
   function generatePassword() {
     var numChar = prompt("How long should your password be? (Please choose a number between 8-128");
@@ -89,30 +89,29 @@ function writePassword() {
     if (incSC === true) {
       passChar = passChar.concat(special);
     }
-
     console.log(passChar);
-
     if (passChar.length === 0) {
       console.log("Array is empty.");
       alert("You can't generate a password if you don't select any characters. Please try again.");
-      generatePassword();
     }
+//All of above works ^^^^^^^^^^
+    
+    writePassword()
+
+      for (var i = 0; i < numChar.length; i++) {
+        password += passChar.charAt
+        (Math.floor(Math.random() * passChar.length));
+      }
+        console.log(password);
+        return password;
+        
   }
 
-  //   for (let index = 0; index < array.length; index++) {
-  // const element = array[index]; 
-  // }
+
+    ////  const element = array[index];
 }
-    //repeat with for loop for numChar amount of iterations
-    //passChar.length
-    //return password
-
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max);
-// }
-
-// console.log(getRandomInt(numChar));
 
 
-// event listener for generate button - when clicked, this starts the writePassword function
+
+
 generateBtn.addEventListener("click", writePassword);
