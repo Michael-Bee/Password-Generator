@@ -92,9 +92,10 @@ function writePassword() {
 
     console.log(passChar);
 
-    if (passChar.length = 0) {
-      alert("You can't generate a password if you don't select any characters. Please try again.")
-      generatePassword()
+    if (passChar.length === 0) {
+      console.log("Array is empty.");
+      alert("You can't generate a password if you don't select any characters. Please try again.");
+      generatePassword();
     }
   }
 
