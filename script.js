@@ -61,11 +61,10 @@ var special = ["!", "@", "#", "?", "%", "*"];
 var passChar = [];
 
 function writePassword() {
+  //is this part the problem? vvvvv
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-      passwordText.value = password;
 
-
+  //All of this appears to work vvvvv
   function generatePassword() {
     var numChar = prompt("How long should your password be? (Please choose a number between 8-128");
     if (numChar < 8 || numChar > 128 || numChar == null) {
@@ -93,19 +92,18 @@ function writePassword() {
       console.log("Array is empty.");
       alert("You can't generate a password if you don't select any characters. Please try again.");
     }
-
     console.log(passChar);
-//All of this part seems to work ^^^^^^^^^^
-
-    totalChar = passChar.length;
-      
-    for (var i = 0; i < numChar.length; i++) {
-      password += passChar.charAt(Math.floor(Math.random() * totalChar));
+    //All of this part seems to work ^^^^^^^^^^   
+  
+    for (var i = 0; i < numChar; i++) {
+      password += passChar[Math.floor(Math.random() * passChar.length)];
     }
-      
     console.log(password);
     return password;
   }
 }
+
+  var passwordText = document.querySelector("#password");
+      passwordText.value = password;
 
 generateBtn.addEventListener("click", writePassword);
