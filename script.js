@@ -61,36 +61,45 @@ var special = ["!", "@", "#", "?", "%", "*"];
 var passChar = [];
 
 function generatePassword() {
-  var numChar = prompt("How long should your password be? (Please choose a number between 8-128");
-  if (numChar < 8 || numChar > 128 || numChar == null) {
+  var numChar = prompt(
+    "How long should your password be? (Please choose a number between 8-128"
+    );
+  
+    if (numChar < 8 || numChar > 128 || numChar == null) {
     alert("Invalid entry. Please pick a number between 8-128.");
     generatePassword();
-    } else console.log(numChar);
+  } else console.log(numChar);
 
   var incLC = confirm("Would you like to include lowercase characters?");
   if (incLC === true) {
     passChar = passChar.concat(lowercase);
   }
+  
   var incUC = confirm("Would you like to include uppercase characters?");
   if (incUC === true) {
     passChar = passChar.concat(uppercase);
   }
+  
   var incNum = confirm("Would you like to include numbers?");
   if (incNum === true) {
     passChar = passChar.concat(num);
   }
+  
   var incSC = confirm("Would you like to include special characters?");
   if (incSC === true) {
     passChar = passChar.concat(special);
   }
+  
   if (passChar.length === 0) {
     console.log("Array is empty.");
-    alert("You can't generate a password if you don't select any characters. Please try again.");
+    alert(
+      "You can't generate a password if you don't select any characters. Please try again."
+    );
   }
 
-  console.log(passChar);
-  console.log(numChar);
-  
+  // console.log(passChar);
+  // console.log(numChar);
+
   for (var i = 0; i < numChar; i++) {
     password += passChar[Math.floor(Math.random() * passChar.length)];
   }
